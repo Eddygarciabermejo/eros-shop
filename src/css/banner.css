@@ -1,0 +1,30 @@
+
+@media screen and (min-width: 1200px){
+    .intro-subtitle {
+        font-size: 4rem !important
+    }
+}
+
+@media screen and (min-width: 992px){
+
+    intro-subtitle {
+        font-size: 3rem;
+    }
+}
+
+
+.intro-content .btn{
+    border: 3px solid #e51947 !important;
+    font-weight: bold ;
+}
+
+.intro-content .btn:hover{
+    color: white !important;
+    background-color: #e51947 !important ;
+    
+}
+
+.owl-theme.owl-light .owl-nav :hover{
+    color: #c09b85 !important;
+}
+

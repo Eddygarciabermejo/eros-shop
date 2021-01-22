@@ -1,0 +1,31 @@
+.banner-subtitle.text-white a{
+
+    font-size: 2rem;
+    font-weight: bold
+}
+
+.banner-title strong{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+
+.banner-link.underline:hover{
+
+    background-color: #e51947  !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+
+.banner .banner-link.btn{
+    border-bottom: .2rem solid #e51947 !important;
+}
+@media screen and (min-width: 768px){
+
+    .banner .banner-link.btn{
+        font-size: 1.5rem !important;
+        
+    }
+}
+

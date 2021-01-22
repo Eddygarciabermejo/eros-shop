@@ -1,0 +1,8 @@
+.down-none::after{
+
+    display: none !important;
+}
+
+.div-catgory{
+    width: 450px !important;
+}

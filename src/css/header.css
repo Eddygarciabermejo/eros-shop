@@ -1,0 +1,29 @@
+.header-bottom .menu>li>a:before {
+    background-color: #e51947;
+
+ }
+
+
+.header-6 .header-middle a:hover{
+    color: #e51947 !important ;
+
+}
+
+
+.cart-txt:hover{
+    color: #e51947 !important ;
+}
+.cart-count{
+    background-color: #e51947 !important ;
+}
+
+
+.la-lightbulb-o:before{
+    color: #c09b85 !important ;
+}
+
+.header-top{
+
+    color: #e51947;
+    font-weight: bold;
+}

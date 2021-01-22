@@ -1,0 +1,19 @@
+.product-price{
+    color: #e51947 !important;
+    font-weight: bold;
+}
+
+.new-price{
+    color: #e51947 !important;
+    font-weight: bold;
+}
+
+.product-label.label-sale{
+     background-color: #e51947 ;
+}
+
+.btn-load-more{
+    background-color:  #e51947 ;
+    color: white;
+    border: 1px solid  #e51947 ;
+}

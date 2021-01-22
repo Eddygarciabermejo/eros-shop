@@ -1,0 +1,21 @@
+.container-contact{
+    display: flex;
+}
+
+.text-contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-contact div{
+    width: 100%;
+}
+
+
+@media (max-width: 600px) {
+
+    .container-contact{
+        display: block;
+    }
+}

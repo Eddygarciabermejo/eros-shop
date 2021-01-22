@@ -1,0 +1,39 @@
+.footer{
+    background-color: #1a0a0f !important;
+}
+.payaements {
+    display:block;
+}
+
+.icon-heart-o{
+    color: red;
+}
+
+.icon-redes{
+    font-size: 2.5rem !important;
+}
+
+
+
+.textf{
+    color: white;
+}
+
+.title-footer{
+    color: #e51947 !important ;
+}
+
+.payament-m{
+    margin-top: 6% !important;
+}
+.icon-whatsapp-footer{
+    color: #41EA54;
+}
+
+.footer .social-icon:hover, .footer .social-icon:focus{
+    background-color: transparent !important;
+}
+
+.footer .widget-title{
+    margin-bottom: 0px;
+}
