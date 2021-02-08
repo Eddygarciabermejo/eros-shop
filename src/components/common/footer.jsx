@@ -1,10 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/footer.css'
+import AdminService from "../../api/AdminService";
 
 function Footer ( props ) {
     const { logoFooter = "assets/images/home/Logo-white.png" } = props;
     const { container = "container" } = props;
+
+    const [footerData, setFooterData] = useState({
+        title: '',
+        phoneFooter: ''
+    });
+    const {title, phoneFooter} = footerData;
+
+    useEffect(() => {
+        AdminService.getFooters().then(resp => {
+            setFooterData({
+                title: resp[0].Texto_WhatsApp,
+                phoneFooter: resp[0].Numero_WhatsApp
+            })
+        })
+    }, [setFooterData]);
 
     return (
         <footer className="footer footer-2">
@@ -19,8 +35,8 @@ function Footer ( props ) {
                                 <div className="widget-about-info">
                                     <div className="row payaements ">
                                         <div className="col-sm-6 col-md-4">
-                                            <span className="widget-about-title textf title-footer widget-title">Got Question? Call us 24/7</span>
-                                            <Link className="textf " to="tel:123456789"> <i className="icon-whatsapp icon-redes icon-whatsapp-footer"></i> +0123 456 789</Link>
+                                            <span className="widget-about-title textf title-footer widget-title">{title}</span>
+                                            <Link className="textf " to="tel:123456789"> <i className="icon-whatsapp icon-redes icon-whatsapp-footer"></i> +1 {phoneFooter}</Link>
                                         </div>
                                         <div className="col-sm-6 col-md-8">
                                             <span className="widget-about-title textf title-footer widget-title payament-m ">Payment Method</span>

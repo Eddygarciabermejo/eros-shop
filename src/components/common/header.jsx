@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+
 
 // Common Header Components
 import MainMenu from './partials/main-menu';
@@ -10,8 +11,36 @@ import RegisterModal from '../features/modal/register';
 import { showModal } from '../../actions';
 
 import '../../css/header.css'
+import AdminService from "../../api/AdminService";
+
 function Header ( props ) {
+
+
+    const [socialMedia, setSocialMedia] = useState({
+        facebook: '',
+        instagram: ''
+    });
+    const [data, setData] = useState({
+        phoneHeader: ''
+    });
+
+    const {facebook, instagram} = socialMedia;
+    const {phoneHeader} = data;
+
     const { container = "container",  showModal } = props;
+
+    useEffect(() => {
+        AdminService.getHeaders().then(resp => {
+            setSocialMedia({
+                facebook: resp[0].Facebook,
+                instagram: resp[0].Instagram
+            })
+            setData({
+                phone: resp[0].Numero_Telefonico
+            })
+        })
+    }, [setSocialMedia, setData]);
+
 
     function openLoginModal ( e ) {
         showModal( 'login' );
@@ -31,7 +60,12 @@ function Header ( props ) {
                             <li>
                                 <Link to="#">Links</Link>
                                 <ul>
-                                    <li><Link to="tel:#"><i className="icon-phone"></i>Call: +0123 456 789</Link></li>
+                                    <li>
+                                        <Link to="tel:#">
+                                            <i className="icon-phone"></i>
+                                            Call: +1 {phoneHeader}
+                                        </Link>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -39,8 +73,8 @@ function Header ( props ) {
 
                     <div className="header-right">
                         <div className="social-icons social-icons-color">
-                            <a href="" className="social-icon social-facebook" rel="noopener noreferrer" title="Facebook" target="_blank"><i className="icon-facebook-f"></i></a>
-                            <a href="" className="social-icon social-instagram" rel="noopener noreferrer" title="Instagram" target="_blank"><i className="icon-instagram"></i></a>
+                            <a href={facebook} className="social-icon social-facebook" rel="noopener noreferrer" title="Facebook" target="_blank"><i className="icon-facebook-f"></i></a>
+                            <a href={instagram} className="social-icon social-instagram" rel="noopener noreferrer" title="Instagram" target="_blank"><i className="icon-instagram"></i></a>
                         </div>
                         <ul className="top-menu top-link-menu">
                             <li>

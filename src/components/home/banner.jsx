@@ -6,9 +6,14 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { safeContent } from '../../utils';
 
 import '../../css/banner.css'
+import ProductService from "../../api/ProducService";
 
 export default function Banner ( props ) {
     const { img, subtitle, width = "400", height = "400", title, btnText = "Shop Now" } = props.banner;
+
+    const respCategories = ProductService.getCategoryGenero().then(res => {
+        console.log(res);
+    })
 
     return (
         <div className="banner banner-overlay">
