@@ -18,28 +18,29 @@ function Header ( props ) {
 
     const [socialMedia, setSocialMedia] = useState({
         facebook: '',
-        instagram: ''
-    });
-    const [data, setData] = useState({
+        instagram: '',
         phoneHeader: ''
     });
-
-    const {facebook, instagram} = socialMedia;
-    const {phoneHeader} = data;
+    const {facebook, instagram, phoneHeader} = socialMedia;
 
     const { container = "container",  showModal } = props;
 
     useEffect(() => {
-        AdminService.getHeaders().then(resp => {
+        AdminService.getHeaders().then( resp => {
+            console.log(resp);
+            console.log(resp[0]);
+            let face = resp[0]['Facebook']
+            let inst = resp[0]['Instagram']
+            let phone = resp[0]['Numero_Telefonico']
             setSocialMedia({
-                facebook: resp[0].Facebook,
-                instagram: resp[0].Instagram
+                facebook: face,
+                instagram: inst,
+                phoneHeader: phone
             })
-            setData({
-                phone: resp[0].Numero_Telefonico
-            })
+            console.log(socialMedia);
         })
-    }, [setSocialMedia, setData]);
+        console.log(socialMedia);
+    }, [setSocialMedia]);
 
 
     function openLoginModal ( e ) {

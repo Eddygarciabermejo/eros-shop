@@ -15,7 +15,6 @@ export default class ProductService extends React.Component {
 
     static getCategoryGenero() {
         return axios.get(`${ProductService.getUrl()}genero-categorias`).then(res => {
-            console.log(res);
             if (res.status === 200) {
                 return res.data;
 
