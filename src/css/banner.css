@@ -12,19 +12,32 @@
     }
 }
 
+.btn-outline-white-4:hover{
+    background-color: transparent !important;
+    border-color: none !important;
+    box-shadow: none;
+}
+
 
 .intro-content .btn{
-    border: 3px solid #e51947 !important;
-    font-weight: bold ;
+    
+    background-image: url(../btn/button-home.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    border: none !important;
+    font-weight: bold;
 }
 
 .intro-content .btn:hover{
-    color: white !important;
-    background-color: #e51947 !important ;
-    
+    background-image: url(../btn/button-home-hover.png) !important;  
+    color: #e51947; 
 }
 
 .owl-theme.owl-light .owl-nav :hover{
     color: #c09b85 !important;
 }
+
+
+
+
 

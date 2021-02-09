@@ -12,14 +12,21 @@
 
 .banner-link.underline:hover{
 
-    background-color: #e51947  !important;
-    color: white !important;
-    font-weight: bold;
+    background-image: url(../btn/button-home-hover.png) !important;   
+    background-color: transparent !important;
+    color: #e51947;
+    
 }
 
 
+
 .banner .banner-link.btn{
-    border-bottom: .2rem solid #e51947 !important;
+    border-bottom: none !important;
+    background-image: url(../btn/button-home.png);
+    background-size: 100% 45px;
+    background-repeat: no-repeat;
+    border: none !important;
+    font-weight: bold;
 }
 @media screen and (min-width: 768px){
 

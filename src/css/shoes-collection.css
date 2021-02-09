@@ -28,15 +28,14 @@
 
 .btn-sale:hover{
 
-    background-color: #c09b85 ;
-    border: .2rem solid #e51947;
+    background-image: url(../btn/button-home-hover.png) !important;   
+    background-color: transparent !important;
     color: #e51947;
 }
 
 
 .btn-sale {
-    border: .2rem solid #e51947;
-    background-color: #e51947;
+
     font-weight: bold;
     min-width: 100% !important;
     padding: .8rem 1.4rem !important;
@@ -82,5 +81,12 @@
 }
 
 .label-sale{
-    background-color:#e51947  !important;
+    background-color: transparent  !important;
+}
+
+.btn-hover{
+    background-image: url(../btn/button-home.png);
+    background-size: 100% 35px;
+    background-repeat: no-repeat;
+    border: none !important;
 }
