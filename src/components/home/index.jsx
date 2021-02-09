@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
 // import Custom Components
@@ -20,8 +20,31 @@ import { brandSlider, introSlider } from '../settings';
 // import Data and Style.
 import _data from '../../mock_data/data.json';
 import style from './style.scss';
+import ProductService from "../../api/ProducService";
 
 export default function HomePage () {
+
+    const [info, setInfo] = useState(
+        [
+            {
+                title: '',
+                subtitle: '',
+                img: '',
+                width: "575",
+                height: "300"
+            },
+            {
+                title: '',
+                subtitle: '',
+                img: '',
+                width: "575",
+                height: "300"
+            },
+        ]
+    );
+
+
+
     useEffect( () => {
         document.getElementById( "menu-home" ).classList.add( "active" );
 
@@ -32,6 +55,28 @@ export default function HomePage () {
             style.unuse();
         } )
     }, [] )
+
+    useEffect(() => {
+        ProductService.getCategoryGenero().then(res => {
+            let resp = res[0];
+            setInfo([
+                {
+                    title: resp.Titulo1_Hombres,
+                    subtitle: resp.Titulo2_Hombres,
+                    img: resp.Imagen_Hombres[0].url,
+                    width: "575",
+                    height: "300"
+                },
+                {
+                    title: resp.Titulo1_Mujeres,
+                    subtitle: resp.Titulo2_Mujeres,
+                    img: resp.Imagen_mujeres[0].url,
+                    width: "575",
+                    height: "300"
+                }
+            ])
+        })
+    }, []);
 
     return (
         <>
@@ -57,11 +102,11 @@ export default function HomePage () {
                     <div className="container">
                         <div className="row">
                             {
-                                _data.banner.slice( 0, 2 ).map( ( item, index ) =>
-                                    <div className="col-sm-6" key={ index }>
-                                        <Banner banner={ item } />
-                                    </div>
-                                )
+                                info.map( ( item, index ) => {
+                                    return (<div className="col-sm-6" key={index}>
+                                        <Banner banner={item}/>
+                                    </div>)
+                                })
                             }
                         </div>
                         <hr className="mt-0 mb-0" />

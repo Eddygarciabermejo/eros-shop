@@ -15,7 +15,6 @@ export default class AdminService extends React.Component {
 
     static getHeaders() {
         return axios.get(`${AdminService.getUrl()}headers`).then(res => {
-            console.log(res);
             if (res.status === 200) {
                 return res.data;
 

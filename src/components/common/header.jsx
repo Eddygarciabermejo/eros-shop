@@ -27,8 +27,6 @@ function Header ( props ) {
 
     useEffect(() => {
         AdminService.getHeaders().then( resp => {
-            console.log(resp);
-            console.log(resp[0]);
             let face = resp[0]['Facebook']
             let inst = resp[0]['Instagram']
             let phone = resp[0]['Numero_Telefonico']
@@ -37,9 +35,7 @@ function Header ( props ) {
                 instagram: inst,
                 phoneHeader: phone
             })
-            console.log(socialMedia);
         })
-        console.log(socialMedia);
     }, [setSocialMedia]);
 
 
